@@ -2,10 +2,10 @@
 node_modules
 
 # Dist
-/pollen.css
-/index.js
-/index.d.ts
-/utils
+# /pollen.css
+# /index.js
+# /index.d.ts
+# /utils
 
 # Runtime
 coverage

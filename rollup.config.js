@@ -22,22 +22,33 @@ function retainImports() {
 export default [
   {
     input: 'src/utils/index.ts',
-    output: {
-      dir: 'utils',
-      format: 'cjs'
-    },
+    output: [
+      {
+        dir: 'utils/es',
+        format: 'es',
+        entryFileNames: '[name].mjs'
+      },
+      {
+        dir: 'utils/cjs',
+        format: 'cjs',
+        entryFileNames: '[name].cjs'
+      }
+    ],
     plugins: [
       resolve({ browser: true }),
-      typescript({ outDir: 'utils' }),
+      commonjs(),
+      typescript(),
       terser()
     ]
   },
   {
     input: 'src/index.ts',
-    output: {
-      dir: '.',
-      format: 'cjs'
-    },
+    output: [
+      {
+        dir: '.',
+        format: 'cjs'
+      },
+    ],
     plugins: [
       resolve(),
       typescript({ outDir: '.' }),
